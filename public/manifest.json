@@ -1,0 +1,23 @@
+{
+  "name": "Elmas Core — Collectif IT & Data",
+  "short_name": "Elmas Core",
+  "description": "Collectif de Développeurs, Ingénieurs Data et Créatifs pour bâtir les systèmes et jeux de demain.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0014",
+  "theme_color": "#0A0014",
+  "lang": "fr-FR",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/og-default.png",
+      "sizes": "1200x630",
+      "type": "image/png"
+    }
+  ]
+}

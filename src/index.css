@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import "tailwindcss";
+
+/* ===== TAILWIND V4 — ELMAS CORE "WARM PRECISION" DESIGN SYSTEM ===== */
+/* Light mode is the default. Dark mode provides immersive night contrast. */
+@theme {
+  /* Brand — Corail brûlé (Signature ElmasCore) */
+  --color-accent: #E8552E;
+  --color-accent-dark: #C4451E;
+  --color-accent-light: #FF7B52;
+  --color-accent-muted: #FFE8E0;
+
+  /* Legacy brand aliases */
+  --color-brand: var(--color-accent);
+  --color-brand-dark: var(--color-accent-dark);
+  --color-brand-light: var(--color-accent-light);
+
+  /* Surfaces — Warm Mineral Light (DEFAULT) */
+  --color-surface: #FAFAF9;
+  --color-surface-lighter: #F5F4F2;
+  --color-surface-elevated: #FFFFFF;
+  --color-surface-card: #FFFFFF;
+
+  /* Borders — Warm grey */
+  --color-border: #E6E5E2;
+  --color-border-hover: #D4D2CE;
+
+  /* Text — Rich black/warm neutrals */
+  --color-text-primary: #171717;
+  --color-text-secondary: #52524E;
+  --color-text-tertiary: #7A7974;
+  --color-text-muted: #A8A7A2;
+
+  /* Typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Misc */
+  --color-on-accent: #FFFFFF;
+}
+
+/* ===== DARK MODE OVERRIDES ===== */
+html[data-theme="dark"] {
+  --color-surface: #0B0B0B;
+  --color-surface-lighter: #141414;
+  --color-surface-elevated: #1A1A1A;
+  --color-surface-card: #141414;
+
+  --color-border: #262626;
+  --color-border-hover: #3D3D3D;
+
+  --color-text-primary: #F5F5F0;
+  --color-text-secondary: #A1A19A;
+  --color-text-tertiary: #6B6B66;
+  --color-text-muted: #4A4A46;
+
+  --color-accent: #FF6B35;
+  --color-accent-dark: #E05A25;
+  --color-accent-light: #FF8A5C;
+  --color-accent-muted: #2A1510;
+
+  --color-brand: var(--color-accent);
+  --color-brand-dark: #E05A25;
+  --color-brand-light: #FF8A5C;
+
+  color-scheme: dark;
+}
+
+/* ===== LIGHT MODE ===== */
+html:not([data-theme="dark"]) {
+  color-scheme: light;
+}
+
+/* ===== BASE STYLES ===== */
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-text-secondary);
+    font-family: var(--font-sans);
+    cursor: auto;
+  }
+
+  ::selection {
+    background: rgba(232, 85, 46, 0.2);
+    color: var(--color-text-primary);
+  }
+
+  ::placeholder {
+    color: var(--color-text-muted);
+    opacity: 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text-primary);
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+  }
+
+  @media (pointer: fine) {
+    body, a, button, input, textarea, select, label, [role="button"], .cursor-pointer {
+      cursor: none !important;
+    }
+  }
+}
+
+/* ===== UTILITY CLASSES ===== */
+@layer utilities {
+  /* Backgrounds */
+  .bg-surface {
+    background-color: var(--color-surface);
+  }
+  .bg-surface-lighter {
+    background-color: var(--color-surface-lighter);
+  }
+  .bg-surface-elevated {
+    background-color: var(--color-surface-elevated);
+  }
+  .bg-surface-card {
+    background-color: var(--color-surface-card);
+  }
+
+  /* Semantic surface mix */
+  .bg-surface-soft {
+    background-color: color-mix(in srgb, var(--color-text-primary) 4%, transparent);
+  }
+  .bg-surface-soft-hover {
+    background-color: color-mix(in srgb, var(--color-text-primary) 8%, transparent);
+  }
+  .bg-surface-overlay {
+    background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
+  }
+
+  html[data-theme="dark"] .bg-surface-soft {
+    background-color: color-mix(in srgb, var(--color-text-primary) 6%, transparent);
+  }
+  html[data-theme="dark"] .bg-surface-soft-hover {
+    background-color: color-mix(in srgb, var(--color-text-primary) 12%, transparent);
+  }
+
+  /* Text utilities */
+  .text-text-primary {
+    color: var(--color-text-primary);
+  }
+  .text-text-secondary {
+    color: var(--color-text-secondary);
+  }
+  .text-text-tertiary {
+    color: var(--color-text-tertiary);
+  }
+  .text-text-muted {
+    color: var(--color-text-muted);
+  }
+  .text-on-accent {
+    color: var(--color-on-accent);
+  }
+  .text-on-brand {
+    color: var(--color-on-accent);
+  }
+
+  /* Borders */
+  .border-border {
+    border-color: var(--color-border);
+  }
+  .border-border-hover {
+    border-color: var(--color-border-hover);
+  }
+  .border-subtle {
+    border-color: color-mix(in srgb, var(--color-text-primary) 8%, transparent);
+  }
+
+  /* Accent */
+  .text-accent {
+    color: var(--color-accent);
+  }
+  .bg-accent {
+    background-color: var(--color-accent);
+  }
+  .border-accent {
+    border-color: var(--color-accent);
+  }
+  .bg-accent-muted {
+    background-color: var(--color-accent-muted);
+  }
+
+  /* Legacy brand aliases */
+  .text-brand {
+    color: var(--color-accent);
+  }
+  .bg-brand {
+    background-color: var(--color-accent);
+  }
+  .border-brand {
+    border-color: var(--color-accent);
+  }
+
+  /* Hovers */
+  .hover\:border-accent:hover {
+    border-color: var(--color-accent);
+  }
+  .hover\:text-accent:hover {
+    color: var(--color-accent);
+  }
+  .hover\:border-brand:hover {
+    border-color: var(--color-accent);
+  }
+  .hover\:text-brand:hover {
+    color: var(--color-accent);
+  }
+  .hover\:text-text-primary:hover {
+    color: var(--color-text-primary);
+  }
+  .hover\:bg-surface-soft:hover {
+    background-color: color-mix(in srgb, var(--color-text-primary) 4%, transparent);
+  }
+  .hover\:bg-surface-soft-hover:hover {
+    background-color: color-mix(in srgb, var(--color-text-primary) 8%, transparent);
+  }
+
+  /* SVG fills */
+  .fill-text-tertiary {
+    fill: var(--color-text-tertiary);
+  }
+  .fill-text-muted {
+    fill: var(--color-text-muted);
+  }
+
+  /* Inverted element */
+  .bg-inverted {
+    background-color: var(--color-text-primary);
+  }
+  .text-inverted {
+    color: var(--color-surface);
+  }
+
+  /* Modern Glass & Tech Card Components */
+  .card-tech {
+    background-color: var(--color-surface-card);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .card-tech:hover {
+    border-color: var(--color-border-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.08);
+  }
+  html[data-theme="dark"] .card-tech:hover {
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  .card-glass {
+    background: color-mix(in srgb, var(--color-surface-elevated) 75%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
+    border-radius: 1rem;
+  }
+
+  /* Shadows */
+  .shadow-lift {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+  .shadow-lift-hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06), 0 12px 28px rgba(0, 0, 0, 0.10);
+  }
+  html[data-theme="dark"] .shadow-lift {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+  html[data-theme="dark"] .shadow-lift-hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 0 12px 28px rgba(0, 0, 0, 0.6);
+  }
+
+  .shadow-accent-glow {
+    box-shadow: 0 0 24px -4px rgba(232, 85, 46, 0.25);
+  }
+  html[data-theme="dark"] .shadow-accent-glow {
+    box-shadow: 0 0 30px -4px rgba(255, 107, 53, 0.35);
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-surface);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border-hover);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-muted);
+  }
+
+  /* Tabular numbers for clean data/stats */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Precision Engineering Drafting Grid */
+  .bg-grid-tech {
+    background-size: 32px 32px;
+    background-image: 
+      linear-gradient(to right, color-mix(in srgb, var(--color-text-primary) 4.5%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--color-text-primary) 4.5%, transparent) 1px, transparent 1px);
+  }
+
+  .border-hairline {
+    border-color: color-mix(in srgb, var(--color-text-primary) 12%, transparent);
+  }
+
+  /* Marquee animation */
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 28s linear infinite;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,16 @@
+<svg viewBox="0 0 110 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="elmas-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+  </defs>
+  <path 
+    d="M 0 50 L 25 0 L 65 0 L 55 20 L 35 20 L 25 40 L 60 40 L 50 60 L 25 60 L 35 80 L 25 100 Z" 
+    fill="url(#elmas-blue)" 
+  />
+  <path 
+    d="M 32 100 L 85 100 L 110 50 L 85 0 L 72 0 L 62 20 L 75 20 L 90 50 L 75 80 L 42 80 Z" 
+    fill="#6b7280" 
+  />
+</svg>
